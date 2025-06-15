@@ -794,7 +794,7 @@ main {
 .conclusion-quote {
   font-size: var(--font-size-2xl);
   font-weight: 500;
-  color: var(--foreground);
+  color: var(--muted-foreground);
   line-height: 1.5;
   margin: 0;
   font-style: italic;
@@ -822,6 +822,7 @@ main {
   font-size: var(--font-size-4xl);
   color: var(--muted-foreground);
   position: absolute;
+  /* left: 35rem; */
   right: -2rem;
   bottom: -1.5rem;
   font-family: Georgia, serif;
@@ -1432,12 +1433,13 @@ p {
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--glass-border);
   border-radius: 24px;
-  padding: var(--space-xl) var(--space-lg);
-  max-width: 900px;
+  padding: var(--space-2xl) var(--space-xl); /* Increased padding */
+  max-width: 1200px; /* Increased from 900px */
   margin: 0 auto;
   position: relative;
   overflow: hidden;
 }
+
 
 .hero-badge {
   display: inline-block;
@@ -1488,7 +1490,7 @@ p {
 .hero-description p {
   font-size: var(--font-size-lg);
   color: var(--muted-foreground);
-  max-width: 600px;
+  /* max-width: 600px; */
   margin: 0 auto;
 }
 
@@ -1593,6 +1595,7 @@ p {
 .button-text {
   position: relative;
   z-index: 2;
+  
 }
 
 .button-shine {
@@ -2817,7 +2820,7 @@ p {
   display: flex;
   align-items: flex-start;
   gap: var(--space-md);
-  padding: var(--space-lg);
+  padding: var(--space-md);
   background: rgba(255, 255, 255, 0.05);
   border-radius: 16px;
   transition: all 0.3s ease;
@@ -2857,6 +2860,7 @@ p {
   font-size: var(--font-size-sm);
   margin: 0;
   line-height: 1.5;
+  text-align: start;
 }
 
 .platform-capabilities-content p {
@@ -2881,7 +2885,7 @@ p {
   background: var(--dark-card-bg);
   border: 1px solid var(--border);
   border-radius: 20px;
-  padding: var(--space-xl);
+  padding: var(--space-lg) var(--space-md);
   text-align: center;
   transition: all 0.3s ease;
   position: relative;
@@ -2909,7 +2913,7 @@ p {
   font-weight: 700;
   font-size: var(--font-size-xl);
   flex-shrink: 0;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-xs);
 }
 
 .platform-feature-content {

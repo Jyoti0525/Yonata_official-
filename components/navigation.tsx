@@ -19,7 +19,6 @@ export default function Navigation() {
     setMobileMenuOpen(false)
   }
 
-  // Close mobile menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (navRef.current && !navRef.current.contains(e.target as Node)) {
@@ -29,7 +28,7 @@ export default function Navigation() {
 
     if (mobileMenuOpen) {
       document.addEventListener("click", handleClickOutside)
-      document.body.style.overflow = "hidden" // Prevent background scrolling
+      document.body.style.overflow = "hidden"
     } else {
       document.body.style.overflow = "unset"
     }
@@ -40,12 +39,10 @@ export default function Navigation() {
     }
   }, [mobileMenuOpen])
 
-  // Close mobile menu when route changes
   useEffect(() => {
     setMobileMenuOpen(false)
   }, [pathname])
 
-  // Handle escape key
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape" && mobileMenuOpen) {
@@ -59,82 +56,90 @@ export default function Navigation() {
 
   return (
     <header>
-      <nav className="container" ref={navRef}>
+      <nav
+        className="container"
+        ref={navRef}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          paddingLeft: "1rem",
+          paddingRight: "1rem",
+        }}
+      >
+        {/* Left: Logo */}
         <Link href="/" className="logo">
           Yonata.ai
         </Link>
-        <ul
-          className={`nav-links ${mobileMenuOpen ? "active" : ""}`}
-          id="navLinks"
-          role="menu"
-          aria-label="Main navigation"
+
+        {/* Center: Navigation Links */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            flex: 1,
+            marginLeft: "2rem",
+            marginRight: "2rem",
+          }}
         >
-          <li role="none">
-            <Link href="/" className={pathname === "/" ? "active-link" : ""} onClick={closeMobileMenu} role="menuitem">
-              Home
-            </Link>
-          </li>
-          <li role="none">
-            <Link
-              href="/solutions"
-              className={pathname === "/solutions" ? "active-link" : ""}
-              onClick={closeMobileMenu}
-              role="menuitem"
-            >
-              Solutions
-            </Link>
-          </li>
-          <li role="none">
-            <Link
-              href="/platform"
-              className={pathname === "/platform" ? "active-link" : ""}
-              onClick={closeMobileMenu}
-              role="menuitem"
-            >
-              Platform
-            </Link>
-          </li>
-          <li role="none">
-            <Link
-              href="/services"
-              className={pathname === "/services" ? "active-link" : ""}
-              onClick={closeMobileMenu}
-              role="menuitem"
-            >
-              Services
-            </Link>
-          </li>
-          <li role="none">
-            <Link
-              href="/about"
-              className={pathname === "/about" ? "active-link" : ""}
-              onClick={closeMobileMenu}
-              role="menuitem"
-            >
-              About
-            </Link>
-          </li>
-          <li role="none">
+          <ul
+            className={`nav-links ${mobileMenuOpen ? "active" : ""}`}
+            id="navLinks"
+            role="menu"
+            aria-label="Main navigation"
+            style={{
+              display: "flex",
+              gap: "2.5rem",
+            }}
+          >
+            <li role="none">
+              <Link href="/" className={pathname === "/" ? "active-link" : ""} onClick={closeMobileMenu} role="menuitem">
+                Home
+              </Link>
+            </li>
+            <li role="none">
+              <Link href="/solutions" className={pathname === "/solutions" ? "active-link" : ""} onClick={closeMobileMenu} role="menuitem">
+                Solutions
+              </Link>
+            </li>
+            <li role="none">
+              <Link href="/platform" className={pathname === "/platform" ? "active-link" : ""} onClick={closeMobileMenu} role="menuitem">
+                Platform
+              </Link>
+            </li>
+            <li role="none">
+              <Link href="/services" className={pathname === "/services" ? "active-link" : ""} onClick={closeMobileMenu} role="menuitem">
+                Services
+              </Link>
+            </li>
+            <li role="none">
+              <Link href="/about" className={pathname === "/about" ? "active-link" : ""} onClick={closeMobileMenu} role="menuitem">
+                About
+              </Link>
+            </li>
+            <li role="none">
+              <Link href="/contact" className={pathname === "/contact" ? "active-link" : ""} onClick={closeMobileMenu} role="menuitem">
+                Contact
+              </Link>
+            </li>
+            <li role="none" className="mobile-cta-container">
+              <Link href="/contact" className="mobile-cta-text" onClick={closeMobileMenu} role="menuitem">
+                <span>Get Started</span>
+                <ArrowRight size={18} />
+              </Link>
+            </li>
+          </ul>
+        </div>
+
+        {/* Right: Actions */}
+        <div className="nav-actions" style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+          <div className="desktop-controls" style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <ThemeToggle />
             <Link
               href="/contact"
-              className={pathname === "/contact" ? "active-link" : ""}
-              onClick={closeMobileMenu}
-              role="menuitem"
+              className="cta-button desktop-cta"
+              style={{ paddingLeft: "1rem", paddingRight: "1rem" }} // slightly narrower
             >
-              Contact
-            </Link>
-          </li>
-          <li role="none" className="mobile-cta-container">
-            <Link href="/contact" className="mobile-cta-text" onClick={closeMobileMenu} role="menuitem">
-              <span>Get Started</span>
-              <ArrowRight size={18} />
-            </Link>
-          </li>
-        </ul>
-        <div className="nav-actions">
-          <div className="desktop-controls">
-            <ThemeToggle />
-            <Link href="/contact" className="cta-button desktop-cta">
               Get Started
             </Link>
           </div>

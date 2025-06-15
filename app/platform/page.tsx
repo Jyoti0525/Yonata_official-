@@ -183,7 +183,7 @@ export default function PlatformPage() {
         <section className="platform-integrations-floating-section">
           <div className="container">
             <div className="integrations-header-standalone">
-              <div className="about-section-badge integrations">Integrations</div>
+              
               <h3>Enterprise Integrations</h3>
             </div>
           </div>

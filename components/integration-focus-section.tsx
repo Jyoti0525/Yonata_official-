@@ -165,10 +165,11 @@ export default function IntegrationFocusSection() {
 
       <div className="elegant-quote-section">
         <blockquote className="conclusion-quote">
-          "You need someone who understands both AI capabilities <span className="highlight-and">and</span> your
-          business workflows. That's exactly what we do."
+          You need someone who understands both AI capabilities <span className="highlight-and">and</span> your
+          business workflows. That's exactly what we do.
         </blockquote>
       </div>
-    </section>
-  )
+    </div>
+  </section>
+)
 }

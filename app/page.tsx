@@ -1,6 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import IntegrationFocusSection from "@/components/integration-focus-section"
+import { ArrowRight } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Yonata.ai - Custom AI Solutions for Growing Businesses",
@@ -25,17 +26,22 @@ export default function HomePage() {
         <div className="container">
           <section className="hero-section-modern">
             <div className="hero-content-glass">
-              <div className="hero-badge">AI Solutions</div>
+              
               <h1 className="modern-title">
-                <span className="title-line">Deploy Profitable AI</span>
-                <span className="title-line">in 12 Weeks</span>
+                <span className="title-line">Deploy Profitable AI in 12 Weeks</span>
+                {/* <span className="title-line">in 12 Weeks</span> */}
               </h1>
               <div className="hero-description">
                 <p>We design, ship, and support custom AI that pays for itself—fast—for growing businesses.</p>
               </div>
               <div className="hero-cta">
-                <Link href="/contact" className="cta-button-modern">
-                  <span className="button-text">Schedule Free Consultation</span>
+                <Link
+                  href="/contact"
+                  className="cta-button-modern"
+                  style={{ paddingTop: "0.4rem", paddingBottom: "0.4rem" }} // ← Reduced height
+                >
+                  <span className="button-text">Schedule Free Consultation</span><ArrowRight size={20} />
+                  
                   <div className="button-shine"></div>
                 </Link>
               </div>
